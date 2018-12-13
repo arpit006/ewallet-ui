@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+mat-label {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+mat-form-field{
+  padding-bottom: 0px;
+}
+
+form{
+  padding: 10px;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 3px;
+  margin-top: -13px;
+}
+
