@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserFormData, UserModel} from '../model/User.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {SignupService} from '../signup.service';
+import {SignupService} from './service/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +14,9 @@ export class SignupComponent implements OnInit {
   userForm: FormGroup;
   signedup = true;
 
+  @Output()
+  usernames: EventEmitter<string> = new EventEmitter();
+
   constructor(private formBuilder: FormBuilder, private signUpService: SignupService) {
     this.userForm = this.userModel.buildForm(this.formBuilder, new UserFormData(0));
 
@@ -24,8 +27,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSave() {
-    this.signedup = false;
-    this.userModel.buildModel(this.userForm, new UserFormData(0));
-    this.signUpService.signUpUser(this.userModel).subscribe();
+    if (this.userForm.valid) {
+      this.signedup = false;
+      this.userModel.buildModel(this.userForm, new UserFormData(0));
+      this.signUpService.signUpUser(this.userModel).subscribe();
+      this.usernames.emit(this.userModel.userName);
+    }
   }
 }

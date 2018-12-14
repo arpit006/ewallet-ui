@@ -16,7 +16,7 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import {SignupService} from './signup.service';
+import {SignupService} from './signup/service/signup.service';
 import {HomepageComponent} from './homepage/homepage.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';

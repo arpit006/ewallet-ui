@@ -1,4 +1,4 @@
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {FormModel, FormData} from '../common/form.model';
 
 // noinspection TypeScriptValidateTypes
@@ -29,13 +29,23 @@ export class UserModel implements FormModel<UserModel, UserFormData> {
 
   constructor() {}
 
+  constructor(data: any) {
+    this.uuid = data.uuid;
+    this.userName = data.userName;
+    this.name = data.name;
+    this.email = data.email;
+    this.mobileNo = data.mobileNo;
+    this.walletBalance = data.walletBalance;
+  }
+
   buildForm(formBuilder: FormBuilder, formData: UserFormData): FormGroup {
     return formBuilder.group({
-      name: new FormControl(this.name),
-      email: new FormControl(this.email),
-      mobileNo: new FormControl(this.mobileNo),
-      userName: new FormControl(this.userName)
-    });  }
+      name: new FormControl(this.name,  [Validators.minLength(3), Validators.required]),
+      email: new FormControl(this.email, [Validators.email, Validators.required]),
+      mobileNo: new FormControl(this.mobileNo, [Validators.maxLength(10), Validators.required, Validators.pattern('[0-9]*')]),
+      userName: new FormControl(this.userName, Validators.required)
+    });
+  }
 
   buildModel(formGroup: FormGroup, formData: UserFormData): UserModel {
     this.name = formGroup.controls['name'].value;
@@ -43,7 +53,8 @@ export class UserModel implements FormModel<UserModel, UserFormData> {
     this.mobileNo = formGroup.controls['mobileNo'].value;
     this.userName = formGroup.controls['userName'].value;
     this.walletBalance = 0;
-    return this;  }
+    return this;
+  }
 
 }
 
