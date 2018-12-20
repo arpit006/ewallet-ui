@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-base',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  usernames: string;
+
+
+  constructor() {
+  }
 
   ngOnInit() {
+
+    console.log('username from base component----------------- ' + this.usernames);
   }
 
 }

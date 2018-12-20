@@ -1,0 +1,12 @@
+div.divide
+   img(src='assets/images/rednblack.jpg')
+   div.signup(*ngIf='viewHomePage')
+     h1 Welcome to the Ewallet application.
+     h2 This application provides user friendly and time saving wallet transactions.
+     h2 You can add money to your wallet, withdraw them any time, hassle-free.
+     h2 You can even send money to your friends and can ask money from them.
+     div.sddd
+       button.signedup(mat-raised-button, (click)='goToRegisterLoginPage()', [routerLink]='["/landing/register"]') Enter the E-Wallet
+   div.signup(*ngIf='!viewHomePage')
+     router-outlet
+

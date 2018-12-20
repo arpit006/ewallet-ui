@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {UserModel} from '../model/User.model';
+import {ProfileService} from './service/profile.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  profileModel: UserModel = new UserModel();
+
+  @Input()
+  usernames: string;
+
+  constructor(private profileService: ProfileService) {
+    this.getUserDetails();
+  }
 
   ngOnInit() {
+    console.log('usernames--------' + this.usernames);
+
+  }
+
+  getUserDetails() {
+    // this.profileService.showUserProfile(this.usernames).map(l => l.map(e => new UserModel(e))).subscribe();
   }
 
 }
