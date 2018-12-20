@@ -2,23 +2,32 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomepageComponent} from './homepage/homepage.component';
 import {SideNavComponent} from './side-nav/side-nav.component';
-import {SignupComponent} from './signup/signup.component';
-import {WalletComponent} from './wallet/wallet.component';
+import {RegisterComponent} from './register/register.component';
+import {TransactionComponent} from './transaction/transaction.component';
+import {LoginComponent} from './login/login.component';
+import {LandingpageComponent} from './landingpage/landingpage.component';
 
 
 const routes: Routes = [
 
   {
-    path: 'login',
+    path: 'user',
     component: SideNavComponent,
     children: [
       {path: 'profile', component: HomepageComponent},
-      {path: 'wallet', component: WalletComponent},
-      {path: '**', redirectTo: '/login/profile'}
+      {path: 'wallet', component: TransactionComponent},
     ]
   },
-  {path: '', component: SignupComponent},
-  {path: '**', redirectTo: ''}
+  {
+    path: 'landing',
+    component: LandingpageComponent,
+    children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent}
+    ]
+  },
+  {path: '', component: LandingpageComponent},
+  {path: '**', redirectTo: '/landing/register'}
 ];
 
 

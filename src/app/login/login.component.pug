@@ -1,0 +1,17 @@
+div.signup
+  h1 Login
+  mat-divider
+  form([formGroup]='loginForm' novalidate)
+    div
+      .row
+        .col-6.form-format
+          mat-label.mat-label USER NAME:
+          mat-label.mat-label PASSWORD:
+        .col-6.form-format
+          mat-form-field.mat-labels
+            input(matInput, formControlName='userName')
+          mat-form-field.mat-labels
+            input(matInput, formControlName='password')
+    mat-divider
+    button.save-button.signedup(mat-raised-button, (click)= 'onSave()', [routerLink]= '["/user/profile"]' ) Login
+    button.save-button(mat-raised-button, [routerLink]= '["/landing/register"]') Cancel

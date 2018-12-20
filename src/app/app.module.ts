@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {SignupComponent} from './signup/signup.component';
+import {RegisterComponent} from './register/register.component';
 import {BaseComponent} from './base/base.component';
 
 import {
@@ -11,27 +11,34 @@ import {
   MatButtonModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatInputModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule
+  MatInputModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatPaginatorModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import {SignupService} from './signup/service/signup.service';
+import {SignupService} from './register/service/signup.service';
 import {HomepageComponent} from './homepage/homepage.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { WalletComponent } from './wallet/wallet.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { LoginComponent } from './login/login.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
+    RegisterComponent,
     BaseComponent,
     HomepageComponent,
     SideNavComponent,
-    WalletComponent
+    TransactionComponent,
+    LoginComponent,
+    RegisterComponent,
+    LandingpageComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,8 @@ import { WalletComponent } from './wallet/wallet.component';
     MatTabsModule,
     MatSidenavModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

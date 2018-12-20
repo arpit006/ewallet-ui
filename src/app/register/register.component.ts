@@ -5,10 +5,10 @@ import {SignupService} from './service/signup.service';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.pug',
-  styleUrls: ['./signup.component.scss']
+  templateUrl: './register.component.pug',
+  styleUrls: ['./register.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   userModel: UserModel = new UserModel();
   userForm: FormGroup;
