@@ -1,7 +1,8 @@
 .signup{
-  background-color: white;
-  max-height: 450px;
-  max-width: 520px;
+  background-color: #E8ECEF;
+  min-height: 30%;
+  max-height: 60%;
+  max-width: 100%;
   align-content: center;
   z-index: 1000;
   position: absolute;
@@ -11,44 +12,5 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  margin-top: 130px;
-}
-
-.divide{
-  background-size: 100% 100%;
-  max-height: 100%;
-  max-width: 100%;
-  height: 100vh;
-  width: 100vw;
-  clip: auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.img{
-  background-size: 100% 100%;
-  max-width: 100%;
-  max-height: 100%;
-  position: relative;
-  z-index: auto;
-}
-.signedup {
-  border: 1px solid #0066cc;
-  background-color: #0099cc;
-  color: #ffffff;
-  padding: 5px 10px;
-}
-
-.signedup:hover {
-  border: 1px solid #0099cc;
-  background-color: #00aacc;
-  color: #ffffff;
-  padding: 5px 10px;
-}
-
-.signedup:disabled,
-.signedup[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+  margin-top: 60px;
 }

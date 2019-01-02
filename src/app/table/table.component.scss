@@ -1,0 +1,24 @@
+.table-container{
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.heading{
+  font-family: "Times New Roman";
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.test{
+  margin: 2em;
+  padding: 2px;
+}
+.header{
+  min-height: 60px;
+}
+
+.button{
+  max-height: 35px;
+  margin-top: 10px;
+  margin-left: -5px;
+}

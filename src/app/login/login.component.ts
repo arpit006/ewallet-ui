@@ -2,7 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserFormData, UserModel} from '../model/User.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {SignupService} from '../register/service/signup.service';
-import {LoginModel} from '../model/Signup.model';
+import {LoginModel} from '../model/Login.model';
+import {LoginService} from './service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,8 @@ export class LoginComponent implements OnInit {
   @Output()
   usernames: EventEmitter<string> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder, private signUpService: SignupService) {
-    this.loginForm = this.loginModel.buildForm(this.formBuilder, new UserFormData(0));
+  constructor(private formBuilder: FormBuilder, private signUpService: SignupService, private loginService: LoginService) {
+    // this.loginForm = this.loginModel.buildForm(this.formBuilder, new UserFormData(0));
 
   }
 

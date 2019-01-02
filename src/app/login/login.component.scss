@@ -2,8 +2,6 @@
   background-size: 100% 100%;
   max-height: 100%;
   max-width: 100%;
-  height: 100vh;
-  width: 100vw;
   clip: auto;
   overflow: hidden;
   position: relative;
@@ -19,9 +17,9 @@
 }
 
 .signup{
-  background-color: white;
-  height: 400px;
-  width: 400px;
+  background-color: #E8ECEF;
+  min-height: 100%;
+  max-width: 40%;
   align-content: center;
   z-index: 1000;
   position: absolute;
@@ -49,7 +47,7 @@ h1{
 }
 
 .mat-label{
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .mat-labels{
@@ -79,6 +77,31 @@ h1{
   color: #666666;
 }
 
+/*.disabled{
+  pointer-events: none;
+  background-color: red;
+  padding: 5px 10px;
+
+}*/
+
 button{
   margin-left: 10px;
 }
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control{
+  display: block;
+  width: 100%;
+  padding: .375em .75em;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  background-color: white;
+}
+

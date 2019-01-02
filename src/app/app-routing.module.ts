@@ -19,15 +19,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'landing',
+    path: '',
     component: LandingpageComponent,
     children: [
       {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent}
+      {path: '', component: RegisterComponent}
     ]
   },
   {path: '', component: LandingpageComponent},
-  {path: '**', redirectTo: '/landing/register'}
+  
+  {path: '**', redirectTo: ''}
 ];
 
 

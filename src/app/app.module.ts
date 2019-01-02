@@ -11,7 +11,8 @@ import {
   MatButtonModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatInputModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatPaginatorModule
+  MatInputModule, MatSidenavModule, MatIconModule, MatListModule,
+  MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,12 +20,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {SignupService} from './register/service/signup.service';
 import {HomepageComponent} from './homepage/homepage.component';
 import {AppRoutingModule} from './app-routing.module';
-import { LayoutModule } from '@angular/cdk/layout';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { LoginComponent } from './login/login.component';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { TableComponent } from './table/table.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {SideNavComponent} from './side-nav/side-nav.component';
+import {TransactionComponent} from './transaction/transaction.component';
+import {LoginComponent} from './login/login.component';
+import {LandingpageComponent} from './landingpage/landingpage.component';
+import {TableComponent} from './table/table.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { TableComponent } from './table/table.component';
     MatSidenavModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

@@ -4,24 +4,24 @@ div.signup
   form([formGroup]='userForm' novalidate)
     div
       .row
-        .col-6.form-format
+        .col-3.form-format
           mat-label.mat-label Name:
           mat-label.mat-label EMAIL:
           mat-label.mat-label MOBILE NO:
           mat-label.mat-label USER NAME:
           mat-label.mat-label PASSWORD:
-        .col-6.form-format
+        .col-9.form-format
           mat-form-field.mat-labels
-            input(matInput, formControlName='name')
+            input.form-control(matInput, formControlName='name')
           mat-form-field.mat-labels
-            input(matInput, formControlName='email')
+            input.form-control(matInput, formControlName='email')
           mat-form-field.mat-labels
-            input(matInput, formControlName='mobileNo')
+            input.form-control(matInput, formControlName='mobileNo')
           mat-form-field.mat-labels
-            input(matInput, formControlName='userName')
+            input.form-control(matInput, formControlName='userName')
           mat-form-field.mat-labels
-            input(matInput, formControlName='password')
+            input.form-control(matInput, formControlName='password')
     mat-divider
     button.save-button(mat-raised-button, (click)= 'onSave()', [routerLink]= '["/user/profile"]',
     [ngClass]="{'disabled': userForm.invalid, 'signedup': userForm.valid}") Sign Up
-    button.save-button(mat-raised-button, [routerLink]= '["/landing/login"]') Login
+    button.save-button(mat-raised-button, [routerLink]= '["/login"]') Login

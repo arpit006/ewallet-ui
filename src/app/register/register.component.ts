@@ -13,12 +13,13 @@ export class RegisterComponent implements OnInit {
   userModel: UserModel = new UserModel();
   userForm: FormGroup;
   signedup = true;
+  submitted = false;
 
   @Output()
   usernames: EventEmitter<string> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder, private signUpService: SignupService) {
-    this.userForm = this.userModel.buildForm(this.formBuilder, new UserFormData(0));
+    // this.userForm = this.userModel.buildForm(this.formBuilder, new UserFormData(0));
 
   }
 
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
   onSave() {
     if (this.userForm.valid) {
       this.signedup = false;
+      this.submitted = true;
       this.userModel.buildModel(this.userForm, new UserFormData(0));
       this.signUpService.signUpUser(this.userModel).subscribe();
       this.usernames.emit(this.userModel.userName);
