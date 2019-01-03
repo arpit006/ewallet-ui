@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {MatPaginator, MatSort, MatTable, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 
 @Component({
@@ -9,13 +9,17 @@ import {SelectionModel} from '@angular/cdk/collections';
 })
 export class TableComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  @ViewChild(MatSort) sort: MatSort;
+
   constructor() {
   }
 
   @Input()
   tableConfig: TableComponentConfig;
 
-  tableDataSource: MatTableDataSource<any>;
+  tableDataSource: MatTableDataSource<any[]>;
 
   @Input()
   displayedColumns: string[] = [];
@@ -23,17 +27,12 @@ export class TableComponent implements OnInit {
   @Input()
   displayHeaders: string[] = [];
 
+  @ViewChild(MatTable) table: MatTable<any>;
+
   @Input()
-  set dataSource(dataSource: MatTableDataSource<any>) {
+  set dataSource(dataSource: MatTableDataSource<any[]>) {
     this.tableDataSource = dataSource;
-    if (this.tableDataSource !== undefined) {
-      this.tableDataSource.connect()
-        .forEach(v => {
-          this.data = v;
-          console.log(this.data);
-          console.log(this.displayedColumns);
-        });
-    }
+    this.tableDataSource.sort = this.sort;
   }
 
   @Output()
@@ -75,8 +74,10 @@ export class TableComponent implements OnInit {
   deleteRow() {
     this.delete.emit(this.selected);
   }
+
   ngOnInit() {
   }
+
 }
 
 export class TableComponentConfig {

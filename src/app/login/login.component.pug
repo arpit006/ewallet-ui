@@ -9,9 +9,9 @@ div.signup
           mat-label.mat-label PASSWORD:
         .col-6.form-format
           mat-form-field.mat-labels
-            input(matInput, formControlName='userName')
+            input.form-control(matInput, formControlName='userName')
           mat-form-field.mat-labels
-            input(matInput, formControlName='password')
+            input.form-control(matInput, formControlName='password')
     mat-divider
-    button.save-button.signedup(mat-raised-button, (click)= 'onSave()', [routerLink]= '["/user/profile"]' ) Login
-    button.save-button(mat-raised-button, [routerLink]= '["/landing/register"]') Cancel
+    button.save-button.signedup(mat-raised-button, (click)= 'onSave()') Login
+    button.save-button(mat-raised-button, [routerLink]= '["/"]') Cancel

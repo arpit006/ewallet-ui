@@ -14,8 +14,8 @@ export class TransactionService {
   constructor(private http: HttpClient) {
   }
 
-  showTransactions(): Observable<TransactionModel> {
+  showTransactions(): Observable<TransactionModel[]> {
     console.log('sevice showtransactions');
-    return this.http.get<TransactionModel>(this.showAllTransactionsUrl);
+    return this.http.get<TransactionModel[]>(this.showAllTransactionsUrl);
   }
 }

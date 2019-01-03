@@ -11,10 +11,11 @@ import {TableComponentConfig} from '../table/table.component';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  dataSource: TransactionDataSource;
+  dataSource: TransactionDataSource = new TransactionDataSource([{}]);
 
-  displayedHeaders: string[];
-  displayedColumns: string[];
+  displayedColumns = [ 'sender', 'receiver' , 'amount' , 'time'];
+  displayedHeaders = [ 'Sender', 'Receiver' , 'Amount' , 'Time'];
+
   tableConfig: TableComponentConfig = {actionButtonsEnabled: true , selectable: true};
 
   constructor(private transactionService: TransactionService) {
@@ -27,19 +28,16 @@ export class TransactionComponent implements OnInit {
 
 
   callTransactionService() {
-    this.displayedColumns = ['sender', 'receiver' , 'amount' , 'time'];
-    this.displayedHeaders = ['Sender', 'Receiver' , 'Amount' , 'Time'];
     this.transactionService.showTransactions()
-      .subscribe(transactions => {this.dataSource = new TransactionDataSource(transactions[0]);
-      console.log(this.dataSource); });
+      .subscribe(transactions => this.dataSource = new TransactionDataSource(transactions));
   }
 }
 
-export class TransactionDataSource extends MatTableDataSource<TransactionModel> {
+export class TransactionDataSource extends MatTableDataSource<TransactionModel[]> {
 
   private transactionData: TransactionModel[];
 
-  constructor(data: any[]) {
+  constructor(data: any) {
     super();
     this.transactionData = data;
   }

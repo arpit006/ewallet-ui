@@ -8,10 +8,12 @@ mat-label {
 
 mat-form-field{
   padding-bottom: 0px;
+
 }
 
 form{
   padding: 10px;
+  background-color: #E8ECEF;
 }
 
 .mat-form-field-wrapper {
@@ -19,3 +21,20 @@ form{
   margin-top: -13px;
 }
 
+mat-cell{
+  outline: thin solid;
+  padding-left: 15px;
+  align-content: center;
+}
+
+mat-header-cell {
+  outline: thin solid;
+  padding-left: 15px;
+  align-content: center;
+}
+
+mat-table {
+  outline: thin solid;
+  padding: 1px;
+  align-content: center;
+}

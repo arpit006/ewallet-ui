@@ -1,16 +1,14 @@
 div
-  mat-card
-    mat-card-header
-      button(mat-raised-button) DELETE
-    mat-card-content
+  mat-card.mat-card.test
+    mat-card-header.mat-card-header.header
+      button.button(mat-raised-button) DELETE
+    mat-card-content.mat-card-content
       .table-container
-        mat-table([dataSource]='tableDataSource')
-          ng-container(*ngFor='let column of displayedColumns;', matColumnDef='{{column}}')
-            mat-header-cell(*matHeaderCellDef) {{getTableHeader(column)}}
-            mat-cell(*matCellDef='let row') {{row[column]}}
-          mat-header-row(*matHeaderRowDef = 'displayedColumns')
-          mat-row(*matRowDef='let row; columns:displayedColumns;',
-          (click)='highlight($event, row)',
-          [ngClass]="{'selected': selectedRow==row}")
-      mat-divider
-      mat-paginator([pageSizeOptions]= [5,10,20,30])
+        mat-table.mat-table([dataSource]='tableDataSource', matSort)
+          ng-container(*ngFor='let columns of displayedColumns', matColumnDef= '{{columns}}')
+            mat-header-cell.heading(*matHeaderCellDef, mat-sort-header) {{getTableHeader(columns)}}
+            mat-cell(*matCellDef='let row') {{row[columns]}}
+          mat-header-row(*matHeaderRowDef='displayedColumns;')
+          mat-row(*matRowDef='let row; columns:displayedColumns')
+        mat-divider
+        mat-paginator([pageSizeOptions]= [5,10,20,30], showFirstLastButtons)
