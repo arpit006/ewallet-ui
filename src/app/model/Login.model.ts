@@ -8,6 +8,11 @@ export class LoginFormData implements FormData<LoginModel> {
 
 // noinspection JSAnnotator
 export class LoginModel implements FormModel<LoginModel, LoginFormData> {
+  uuid: string;
+  name: string;
+  email: string;
+  mobileNo: string;
+  walletBalance: string;
   userName: string;
   password: string;
 
@@ -16,7 +21,11 @@ export class LoginModel implements FormModel<LoginModel, LoginFormData> {
 
   constructor(data: any) {
     this.userName = data.userName;
-    this.password = data.password;
+    this.name = data.name;
+    this.email = data.email;
+    this.walletBalance = data.walletBalance;
+    this.mobileNo = data.mobileNo;
+    this.uuid = data.uuid;
   }
 
   buildForm(formBuilder: FormBuilder, formData: LoginFormData): FormGroup {

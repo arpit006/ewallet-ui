@@ -13,6 +13,8 @@ div.signup
         .col-9.form-format
           mat-form-field.mat-labels
             input.form-control(matInput, formControlName='name')
+          div(*ngIf= "submitted && userForm.controls['name'].errors")
+            h4 Name of the user should be of atleast 3 Characters.
           mat-form-field.mat-labels
             input.form-control(matInput, formControlName='email')
           mat-form-field.mat-labels
@@ -22,6 +24,5 @@ div.signup
           mat-form-field.mat-labels
             input.form-control(matInput, formControlName='password')
     mat-divider
-    button.save-button(mat-raised-button, (click)= 'onSave()', [routerLink]= '["/user/profile"]',
-    [ngClass]="{'disabled': userForm.invalid, 'signedup': userForm.valid}") Sign Up
+    button.save-button.signedup(mat-raised-button, (click)= 'onSave()') Sign Up
     button.save-button(mat-raised-button, [routerLink]= '["/login"]') Login

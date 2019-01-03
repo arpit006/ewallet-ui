@@ -13,6 +13,5 @@ div.signup
           mat-form-field.mat-labels
             input.form-control(matInput, formControlName='password')
     mat-divider
-    button.save-button(mat-raised-button, (click)= 'onSave()', [routerLink]= '["/user/profile"]',
-      [ngClass]="{'disabled': loginForm.invalid, 'signedup': loginForm.valid}") Login
-    button.save-button(mat-raised-button, [routerLink]= '["/register"]') Cancel
+    button.save-button.signedup(mat-raised-button, (click)= 'onSave()') Login
+    button.save-button(mat-raised-button, [routerLink]= '["/"]') Cancel

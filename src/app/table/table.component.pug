@@ -4,7 +4,7 @@ div
       button.button(mat-raised-button) DELETE
     mat-card-content.mat-card-content
       .table-container
-        mat-table.mat-table(#table [dataSource]='tableDataSource', matSort)
+        mat-table.mat-table([dataSource]='tableDataSource', matSort)
           ng-container(*ngFor='let columns of displayedColumns', matColumnDef= '{{columns}}')
             mat-header-cell.heading(*matHeaderCellDef, mat-sort-header) {{getTableHeader(columns)}}
             mat-cell(*matCellDef='let row') {{row[columns]}}

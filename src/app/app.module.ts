@@ -64,7 +64,7 @@ import {TableComponent} from './table/table.component';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]
